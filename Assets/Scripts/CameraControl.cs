@@ -12,6 +12,9 @@ public class CameraControl : MonoBehaviour
 
     Camera cam;
 
+    float MaxZoom = 40;
+    float MinZoom = 95;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -43,7 +46,7 @@ public class CameraControl : MonoBehaviour
          else
          {
             float scroll = Input.GetAxis("Mouse ScrollWheel");
-            Zoom(scroll, 0.1f);
+            Zoom(scroll, 5);
          }
 
         if (Input.GetMouseButtonDown(0))
@@ -63,10 +66,11 @@ public class CameraControl : MonoBehaviour
 
     void Zoom(float deltaMagnitudeDiff, float speed)
     {
-
         cam.fieldOfView += deltaMagnitudeDiff * speed;
         // set min and max value of Clamp function upon your requirement
-        cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, 40, 95);
+        cam.transform.localEulerAngles = new Vector3(Mathf.Lerp(70, 30, Mathf.InverseLerp(MinZoom, 50, cam.fieldOfView)), 0, 0);
+        cam.transform.position = new Vector3(cam.transform.position.x, Mathf.Lerp(100, 30, Mathf.InverseLerp(MinZoom, 50, cam.fieldOfView)), cam.transform.position.z);
+        cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, MaxZoom, MinZoom);
     }
 
 }
