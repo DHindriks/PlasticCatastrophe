@@ -4,6 +4,8 @@ public class CameraControl : MonoBehaviour
 {
     public float dragSpeed = 2;
 
+    bool ControlsEnabled = true;
+
     [SerializeField]
     GameObject FollowTarget;
 
@@ -19,15 +21,19 @@ public class CameraControl : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         cam = GetComponentInChildren<Camera>();
+        GameManager.Instance.overworldCam = this;
     }
 
     void Update()
     {
         //lerp to target position
-        this.transform.position = Vector3.Lerp(this.transform.position, FollowTarget.transform.position, 4 * Time.deltaTime);
+        if (FollowTarget != null)
+        {
+            transform.position = Vector3.Lerp(this.transform.position, FollowTarget.transform.position, 4 * Time.deltaTime);
+        }
 
         // Pinch to zoom
-        if (Input.touchCount == 2)
+        if (Input.touchCount == 2 && ControlsEnabled)
          {
             // get current touch positions
             Touch tZero = Input.GetTouch(0);
@@ -43,25 +49,52 @@ public class CameraControl : MonoBehaviour
              float deltaDistance = oldTouchDistance - currentTouchDistance;
              Zoom(deltaDistance, 0.1f);
          }
-         else
+         else if (ControlsEnabled)
          {
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             Zoom(scroll, 5);
+
+            //rotating the camera
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hit;
+                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+                Debug.DrawRay(ray.origin, ray.direction, Color.green);
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.transform.tag == "TrashObj")
+                    {
+                        Zoom(40, 1);
+                        ControlsEnabled = false;
+                        FollowTarget = hit.transform.gameObject;
+                        Invoke("StartMinigame", 1);
+                        Destroy(hit.transform.gameObject, 2);
+                    }
+                }
+                dragOrigin = Input.mousePosition;
+                return;
+            }
+
+            if (!Input.GetMouseButton(0)) return;
+
+            Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
+            Vector3 move = new Vector3(0, -pos.x * dragSpeed, 0);
+
+            rb.AddTorque(move, ForceMode.Force);
          }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            dragOrigin = Input.mousePosition;
-            return;
-        }
 
-        if (!Input.GetMouseButton(0)) return;
+    }
 
-        Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
-        Vector3 move = new Vector3(0, -pos.x * dragSpeed, 0);
+    void StartMinigame()
+    {
+        GameManager.Instance.StartMinigame(FollowTarget.GetComponent<TrashObjectScript>().Containsitem);
+    }
 
-        rb.AddTorque(move, ForceMode.Force);
-
+    public void ResetCam()
+    {
+        ControlsEnabled = true;
+        FollowTarget = GameManager.Instance.player.gameObject;
     }
 
     void Zoom(float deltaMagnitudeDiff, float speed)

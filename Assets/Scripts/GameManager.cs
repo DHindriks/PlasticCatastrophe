@@ -16,7 +16,14 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public PlayerScript player;
 
+    [HideInInspector]
+    public CameraControl overworldCam;
+
     public List<character> CharList;
+
+    public InventoryObject inventory;
+
+    public ItemObject MinigameItem;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +31,9 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+        }else
+        {
+            Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
     }
@@ -47,12 +57,75 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
+
+    //decides which minigame the game starts, based on player character
+    public void StartMinigame(ItemObject item)
+    {
+        MinigameItem = item;
+        switch (player.CurrentChar.ID)
+        {
+            case 0:
+                SceneManager.LoadScene("MinigameSlingShot", LoadSceneMode.Additive);
+                break;
+
+            case 1:
+                Debug.LogWarning("minigame not implemented yet");
+                SceneManager.LoadScene("MinigameBalance", LoadSceneMode.Additive);
+                break;
+
+            case 2:
+                Debug.LogWarning("minigame not implemented yet");
+                break;
+
+            default:
+                Debug.LogError("Animal ID: " + player.CurrentChar.ID + " not found, starting slingshot minigame.");
+                SceneManager.LoadScene("MinigameSlingShot", LoadSceneMode.Additive);
+                break;
+        }
+    }
+
+    //adds item that was temporarely stored to the players inventory
+    public void PickupItem()
+    {
+        inventory.AddItem(MinigameItem, 1);
+        MinigameItem = null;
+    }
+
+    public void RemoveSaves()
+    {
+        SaveSystem.ResetSaves();
+    }
+}
+
+public enum TrashObjs
+{
+    PWrapper,
+    CigaretteBut,
+    PBottle,
+    Can,
+    PBag,
+    PCup,
+    BottleCap
+}
+[Serializable]
+public struct ItemXPData
+{
+    public TrashObjs obj;
+    public int XPGained;
 }
 
 [Serializable]
 public class character
 {
     public string Name;
-    public int ID; 
+    public int ID;
     public GameObject Prefab;
+    [Space(5)]
+    public int Level;
+    public int NextLevelReq;
+    public int Exp;
+    [Space(5)]
+    public int BaseLevelReq;
+    public int GrowthRate;
+    public List<ItemXPData> XpList;
 }

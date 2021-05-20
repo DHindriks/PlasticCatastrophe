@@ -6,18 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/Mainmenu.unity
+    path: 
     guid: 370121d93a77de14dab53e74a6d477e1
   - enabled: 1
     path: Assets/Scenes/Ingame.unity
     guid: 1e034116e5bc2bf43bb5fdeed9e6ce90
   - enabled: 0
-    path: Assets/Scenes/QRScan.unity
+    path: 
     guid: 07edd9cc91a2ba249860a010dd7ff48d
   - enabled: 0
-    path: Assets/Scenes/Mainmenu.unity
+    path: 
     guid: 370121d93a77de14dab53e74a6d477e1
   - enabled: 0
-    path: Assets/Scenes/QRScan.unity
+    path: 
     guid: 07edd9cc91a2ba249860a010dd7ff48d
+  - enabled: 1
+    path: Assets/Scenes/MinigameSlingShot.unity
+    guid: a1b9489cb681b724095746f89f1a8054
+  - enabled: 1
+    path: Assets/Scenes/MinigameBalance.unity
+    guid: 3124e4621e4c17548879e2c2a0ba6794
   m_configObjects: {}
