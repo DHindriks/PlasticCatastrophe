@@ -19,7 +19,7 @@ public class SlingShotGoal : MonoBehaviour
                     break;
                 }
             }
-            GameManager.Instance.PickupItem();
+            GameManager.Instance.EndMinigame(true);
             EndLevel();
 
         }

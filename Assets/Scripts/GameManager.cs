@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     public InventoryObject inventory;
 
+    public GameObject Sidebar;
+
     [HideInInspector]
     public ItemObject MinigameItem;
 
@@ -74,36 +76,27 @@ public class GameManager : MonoBehaviour
     public void StartMinigame(ItemObject item)
     {
         MinigameItem = item;
+        if (Sidebar.GetComponent<SideBarscript>().Opened)
+        {
+            Sidebar.GetComponent<SideBarscript>().ToggleSideBar();
+        }
+        Sidebar.GetComponent<SideBarscript>().SetSideButton(false);
 
-        if (player.CurrentChar.MinigameSceneName != null)
+        if (player.CurrentChar.MinigameSceneName != "")
         {
             SceneManager.LoadScene(player.CurrentChar.MinigameSceneName, LoadSceneMode.Additive);
         }
-        //switch (player.CurrentChar.ID)
-        //{
-        //    case 0:
-        //        SceneManager.LoadScene("MinigameSlingShot", LoadSceneMode.Additive);
-        //        break;
-
-        //    case 1:
-        //        SceneManager.LoadScene("MinigameBalance", LoadSceneMode.Additive);
-        //        break;
-
-        //    case 2:
-        //        SceneManager.LoadScene("MinigameDrop", LoadSceneMode.Additive);
-        //        break;
-
-        //    default:
-        //        Debug.LogError("Animal ID: " + player.CurrentChar.ID + " not found, starting slingshot minigame.");
-        //        SceneManager.LoadScene("MinigameSlingShot", LoadSceneMode.Additive);
-        //        break;
-        //}
     }
 
     //adds item that was temporarely stored to the players inventory
-    public void PickupItem()
+    public void EndMinigame(bool GiveItem)
     {
-        inventory.AddItem(MinigameItem, 1);
+        if (GiveItem)
+        {
+            inventory.AddItem(MinigameItem, 1);
+        }
+        Sidebar.GetComponent<SideBarscript>().SetSideButton(true);
+
         MinigameItem = null;
     }
 

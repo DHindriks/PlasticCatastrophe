@@ -59,7 +59,7 @@ public class BalanceMiniGame : MonoBehaviour
         {
             //unload this scene.
             SceneManager.UnloadSceneAsync(gameObject.scene);
-
+            GameManager.Instance.EndMinigame(false);
             GameManager.Instance.overworldCam.ResetCam();
         }
         else

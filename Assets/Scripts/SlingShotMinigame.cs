@@ -23,11 +23,13 @@ public class SlingShotMinigame : MonoBehaviour
         if (Lives <= 0)
         {
             //unload this scene.
-            SceneManager.UnloadSceneAsync(gameObject.scene);
             GameManager.Instance.overworldCam.ResetCam();
+            GameManager.Instance.EndMinigame(false);
+            SceneManager.UnloadSceneAsync(gameObject.scene);
         }else
         {
             GameObject TrashObj = Instantiate(TrashPrefab);
+            SceneManager.MoveGameObjectToScene(TrashObj, gameObject.scene);
             TrashObj.GetComponent<SlingShotScript>().cam = camera;
             TrashObj.GetComponent<SlingShotScript>().OriginRB = HookRB;
             TrashObj.GetComponent<SpringJoint>().connectedBody = HookRB;
