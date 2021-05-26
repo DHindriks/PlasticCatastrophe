@@ -680,6 +680,7 @@ MonoBehaviour:
     ID: 0
     Prefab: {fileID: 3268948127617721659, guid: f511e72448235cd44a690aeee9dfbbf1,
       type: 3}
+    MinigameSceneName: MinigameSlingShot
     Level: 0
     NextLevelReq: 0
     Exp: 0
@@ -704,6 +705,7 @@ MonoBehaviour:
     ID: 1
     Prefab: {fileID: 8598317249364373989, guid: 93e5968b81f168b47b6de15a031475ee,
       type: 3}
+    MinigameSceneName: MinigameBalance
     Level: 0
     NextLevelReq: 0
     Exp: 0
@@ -728,6 +730,7 @@ MonoBehaviour:
     ID: 2
     Prefab: {fileID: 7137207937862067180, guid: 9b7d789fff83d194f992ed3289d34142,
       type: 3}
+    MinigameSceneName: MinigameDrop
     Level: 0
     NextLevelReq: 0
     Exp: 0

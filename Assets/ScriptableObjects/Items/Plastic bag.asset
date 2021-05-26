@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Plastic bag
   m_EditorClassIdentifier: 
   prefab: {fileID: 1284022449096461662, guid: 2d370aaf5593f7846b63bfcccc84ea5b, type: 3}
+  Modelprefab: {fileID: 919132149155446097, guid: 7993ac50ffef97f4481709d46d8e3ea7,
+    type: 3}
   type: 4
   description: This is a plastic bag

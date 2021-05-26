@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BalanceMiniGame : MonoBehaviour
 {
@@ -56,8 +57,12 @@ public class BalanceMiniGame : MonoBehaviour
     {
         if (Lives <= 0)
         {
+            //unload this scene.
+            SceneManager.UnloadSceneAsync(gameObject.scene);
 
-        }else
+            GameManager.Instance.overworldCam.ResetCam();
+        }
+        else
         {
             GameOver = false;
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;

@@ -25,6 +25,9 @@ public class PlayerScript : MonoBehaviour
     public Image HealthBarSprite;
     //Inventory
     public InventoryObject inventory;
+    //Level text
+    public string textValue;
+    public Text textElement;
 
     // Start is called before the first frame update
     void Start()
@@ -110,10 +113,10 @@ public class PlayerScript : MonoBehaviour
     private void Update()
     {
         //To be changed when we know how to decrase/increase the health
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            TakeDamage(20);
-        }
+        //if (Input.GetKeyDown(KeyCode.Mouse0))
+        //{
+        //    TakeDamage(20);
+        //}
         // Turtle sprites
         //if (currentHealth == 100)
         //  {
@@ -127,6 +130,10 @@ public class PlayerScript : MonoBehaviour
         // {
         // HealthBarSprite.sprite = SadgeTurtle;
         //}
+        //Level text stuff
+        textElement.text = textValue;
+        textValue = CurrentChar.Level.ToString();
+
     }
     //TakeDamage
     void TakeDamage(int damage)

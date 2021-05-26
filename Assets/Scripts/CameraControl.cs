@@ -54,6 +54,15 @@ public class CameraControl : MonoBehaviour
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             Zoom(scroll, 5);
 
+            if (Input.GetKeyDown(KeyCode.Equals))
+            {
+                Zoom(1, 5);
+            }
+            else if (Input.GetKeyDown(KeyCode.Minus))
+            {
+                Zoom(-1, 5);
+            }
+
             //rotating the camera
             if (Input.GetMouseButtonDown(0))
             {

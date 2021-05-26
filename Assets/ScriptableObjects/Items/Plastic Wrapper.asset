@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Plastic Wrapper
   m_EditorClassIdentifier: 
   prefab: {fileID: 7636662346367772893, guid: c5f3efaf2df26a645a472ce1005bea45, type: 3}
+  Modelprefab: {fileID: 919132149155446097, guid: 54b599fe042dea74ebd2fd074c3bc41f,
+    type: 3}
   type: 0
   description: This is a plastic wrapper

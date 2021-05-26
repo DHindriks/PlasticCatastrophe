@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿
+
+using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -23,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     public InventoryObject inventory;
 
+    [HideInInspector]
     public ItemObject MinigameItem;
 
     // Start is called before the first frame update
@@ -42,15 +46,23 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.C))
         {
-            if (DBGToggle)
-            {
-                DBGWindow.SetActive(true);
-            }else
-            {
-                DBGWindow.SetActive(false);
-            }
-            DBGToggle = !DBGToggle;
+
+            ToggleDB();
         }
+    }
+
+
+    public void ToggleDB()
+    {
+        if (DBGToggle)
+        {
+            DBGWindow.SetActive(true);
+        }
+        else
+        {
+            DBGWindow.SetActive(false);
+        }
+        DBGToggle = !DBGToggle;
     }
 
     public void SwitchScene(string scene)
@@ -62,26 +74,30 @@ public class GameManager : MonoBehaviour
     public void StartMinigame(ItemObject item)
     {
         MinigameItem = item;
-        switch (player.CurrentChar.ID)
+
+        if (player.CurrentChar.MinigameSceneName != null)
         {
-            case 0:
-                SceneManager.LoadScene("MinigameSlingShot", LoadSceneMode.Additive);
-                break;
-
-            case 1:
-                Debug.LogWarning("minigame not implemented yet");
-                SceneManager.LoadScene("MinigameBalance", LoadSceneMode.Additive);
-                break;
-
-            case 2:
-                Debug.LogWarning("minigame not implemented yet");
-                break;
-
-            default:
-                Debug.LogError("Animal ID: " + player.CurrentChar.ID + " not found, starting slingshot minigame.");
-                SceneManager.LoadScene("MinigameSlingShot", LoadSceneMode.Additive);
-                break;
+            SceneManager.LoadScene(player.CurrentChar.MinigameSceneName, LoadSceneMode.Additive);
         }
+        //switch (player.CurrentChar.ID)
+        //{
+        //    case 0:
+        //        SceneManager.LoadScene("MinigameSlingShot", LoadSceneMode.Additive);
+        //        break;
+
+        //    case 1:
+        //        SceneManager.LoadScene("MinigameBalance", LoadSceneMode.Additive);
+        //        break;
+
+        //    case 2:
+        //        SceneManager.LoadScene("MinigameDrop", LoadSceneMode.Additive);
+        //        break;
+
+        //    default:
+        //        Debug.LogError("Animal ID: " + player.CurrentChar.ID + " not found, starting slingshot minigame.");
+        //        SceneManager.LoadScene("MinigameSlingShot", LoadSceneMode.Additive);
+        //        break;
+        //}
     }
 
     //adds item that was temporarely stored to the players inventory
@@ -120,6 +136,7 @@ public class character
     public string Name;
     public int ID;
     public GameObject Prefab;
+    public string MinigameSceneName;
     [Space(5)]
     public int Level;
     public int NextLevelReq;

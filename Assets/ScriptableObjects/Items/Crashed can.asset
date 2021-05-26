@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Crashed can
   m_EditorClassIdentifier: 
   prefab: {fileID: 8285643465716866231, guid: 9fabc97f95461a043944ed26c1f8b9c1, type: 3}
+  Modelprefab: {fileID: 919132149155446097, guid: d1cd7addf40c2dc489f732eacdeace66,
+    type: 3}
   type: 3
   description: This is a crushed can

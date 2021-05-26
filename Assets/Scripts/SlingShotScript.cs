@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class SlingShotScript : MonoBehaviour
 {
-    [SerializeField]
     Rigidbody ballRB;
     [SerializeField]
-    Rigidbody OriginRB;
+    public Rigidbody OriginRB;
 
     [SerializeField]
-    Camera cam;
+    public Camera cam;
+
+    public SlingShotMinigame MinigameManager;
 
     bool IsShot = false;
+
+    void Start()
+    {
+        ballRB = GetComponent<Rigidbody>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -35,6 +42,10 @@ public class SlingShotScript : MonoBehaviour
         {
             //destroy the joint after the object has been shot
             Destroy(GetComponent<SpringJoint>());
+        }else if (ballRB.position.y < -10)
+        {
+            MinigameManager.RespawnBall();
+            Destroy(gameObject);
         }
 
         //shoots the object
@@ -42,6 +53,7 @@ public class SlingShotScript : MonoBehaviour
         {
             IsShot = true;
             ballRB.isKinematic = false;
+            ballRB.AddRelativeTorque(new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10)), ForceMode.VelocityChange);
         }
     }
 }

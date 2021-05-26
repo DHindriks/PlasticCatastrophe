@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Cigarette But
   m_EditorClassIdentifier: 
   prefab: {fileID: 1870557143442901019, guid: b236a8ec7a7fcdc46894594df860c442, type: 3}
+  Modelprefab: {fileID: 919132149155446097, guid: 1a67a079450cf874d91941c0afd58223,
+    type: 3}
   type: 1
   description: This is a cigarette but

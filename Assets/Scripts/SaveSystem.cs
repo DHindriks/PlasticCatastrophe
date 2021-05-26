@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Android;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -6,6 +7,13 @@ public static class SaveSystem {
 
     public static void SaveAnimalData(character savedata)
     {
+        #if PLATFORM_ANDROID
+            if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageWrite))
+            {
+                Permission.RequestUserPermission(Permission.ExternalStorageWrite);
+            }
+        #endif
+
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/"+savedata.ID + "Data.sav";
         FileStream stream = new FileStream(path, FileMode.Create);
@@ -17,6 +25,14 @@ public static class SaveSystem {
 
     public static AnimalSaveData LoadAnimalData(character loaddata)
     {
+
+        #if PLATFORM_ANDROID
+            if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageRead))
+            {
+                Permission.RequestUserPermission(Permission.ExternalStorageRead);
+            }
+        #endif
+
         string path = Application.persistentDataPath + "/" + loaddata.ID + "Data.sav";
         if (File.Exists(path))
         {

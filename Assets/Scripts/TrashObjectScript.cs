@@ -15,6 +15,11 @@ public class TrashObjectScript : MonoBehaviour
     void Start()
     {
         Containsitem = ItemList[Random.Range(0, ItemList.Count)];
+        if (Containsitem.Modelprefab != null)
+        {
+            Instantiate(Containsitem.Modelprefab, transform);
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
         InvokeRepeating("CheckDespawn", 10, 20);
     }
 
