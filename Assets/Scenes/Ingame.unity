@@ -8436,6 +8436,7 @@ MonoBehaviour:
     Name: 
     ID: 0
     Prefab: {fileID: 0}
+    Portrait: {fileID: 0}
     MinigameSceneName: 
     Level: 0
     NextLevelReq: 0
@@ -8448,6 +8449,7 @@ MonoBehaviour:
   currentHealth: 0
   maxXP: 100
   currentXP: 0
+  Portrait: {fileID: 1713979774}
   healthBar: {fileID: 1488677357}
   xp: {fileID: 97598640}
   HappyTurtle: {fileID: 8012476931561527295, guid: 9cfb98c58cd945142b7495e08ea66fae,

@@ -680,6 +680,7 @@ MonoBehaviour:
     ID: 0
     Prefab: {fileID: 3268948127617721659, guid: f511e72448235cd44a690aeee9dfbbf1,
       type: 3}
+    Portrait: {fileID: 21300000, guid: 3ff1f4bb19aee30479cc468db3ee5a86, type: 3}
     MinigameSceneName: MinigameSlingShot
     Level: 0
     NextLevelReq: 0
@@ -705,6 +706,7 @@ MonoBehaviour:
     ID: 1
     Prefab: {fileID: 8598317249364373989, guid: 93e5968b81f168b47b6de15a031475ee,
       type: 3}
+    Portrait: {fileID: 21300000, guid: 7f7480a30c43cb145bb25bb21821335c, type: 3}
     MinigameSceneName: MinigameBalance
     Level: 0
     NextLevelReq: 0
@@ -730,6 +732,7 @@ MonoBehaviour:
     ID: 2
     Prefab: {fileID: 7137207937862067180, guid: 9b7d789fff83d194f992ed3289d34142,
       type: 3}
+    Portrait: {fileID: 21300000, guid: 9861e6db62622694784e8c54a131c442, type: 3}
     MinigameSceneName: MinigameDrop
     Level: 0
     NextLevelReq: 0
@@ -752,6 +755,7 @@ MonoBehaviour:
     - obj: 6
       XPGained: 4
   inventory: {fileID: 11400000, guid: 614f911da73bc3e4188bcc70605bdcfb, type: 2}
+  Sidebar: {fileID: 0}
   MinigameItem: {fileID: 0}
 --- !u!1 &3969589186768764213
 GameObject:

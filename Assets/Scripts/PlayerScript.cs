@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
     public int currentHealth;
     public int maxXP = 100;
     public int currentXP;
-
+    public Image Portrait;
     public HealthBar healthBar;
     public XPScript xp;
     //Health bar sprites
@@ -93,6 +93,7 @@ public class PlayerScript : MonoBehaviour
         }
         xp.SetMaxXP(CurrentChar.NextLevelReq);
         xp.SetXP(CurrentChar.Exp);
+        Portrait.sprite = CurrentChar.Portrait;
         SpawnCharacter();
     }
 

@@ -38,10 +38,6 @@ public class SlingShotScript : MonoBehaviour
             {
                 ballRB.position = mousePos;
             }
-        }else if (IsShot && Vector3.Distance(ballRB.position, OriginRB.position) < 0.5f)
-        {
-            //destroy the joint after the object has been shot
-            Destroy(GetComponent<SpringJoint>());
         }else if (ballRB.position.y < -10)
         {
             MinigameManager.RespawnBall();
@@ -52,8 +48,14 @@ public class SlingShotScript : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && Vector3.Distance(ballRB.position, OriginRB.position) > 0.3f)
         {
             IsShot = true;
+            Invoke("DestroyJoint", 0.2f);
             ballRB.isKinematic = false;
             ballRB.AddRelativeTorque(new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10)), ForceMode.VelocityChange);
         }
+    }
+
+    void DestroyJoint()
+    {
+        Destroy(GetComponent<SpringJoint>());
     }
 }

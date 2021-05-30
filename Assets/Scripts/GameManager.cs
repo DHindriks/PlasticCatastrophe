@@ -129,6 +129,7 @@ public class character
     public string Name;
     public int ID;
     public GameObject Prefab;
+    public Sprite Portrait;
     public string MinigameSceneName;
     [Space(5)]
     public int Level;
