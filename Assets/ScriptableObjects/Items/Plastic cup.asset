@@ -15,5 +15,6 @@ MonoBehaviour:
   prefab: {fileID: 3051992487557871659, guid: f6e942d34be00ea4cb1f5d06b3b00c37, type: 3}
   Modelprefab: {fileID: 919132149155446097, guid: 1b816c2651b17534e85e9ea372feaa8c,
     type: 3}
+  sprite: {fileID: 21300000, guid: bbec68068bac15240b0812116e421a97, type: 3}
   type: 5
   description: This is a plastic cup

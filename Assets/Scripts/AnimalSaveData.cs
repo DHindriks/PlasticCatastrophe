@@ -8,6 +8,8 @@ public class AnimalSaveData {
     public int Level;
     public int Exp;
     public int NextLevelReq;
+    public float Energy;
+    public int TimeStamp;
 
     public AnimalSaveData (character CharStats)
     {
@@ -15,6 +17,8 @@ public class AnimalSaveData {
         Level = CharStats.Level;
         Exp = CharStats.Exp;
         NextLevelReq = CharStats.NextLevelReq;
+        Energy = CharStats.Energy;
+        TimeStamp = CharStats.LastUsed;
     }
 }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 public class DisplayInventory : MonoBehaviour
 {
@@ -27,6 +28,11 @@ public class DisplayInventory : MonoBehaviour
         for (int i = 0; i < inventory.Container.Count; i++)
         {
             var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
+            var pic = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, obj.transform);
+            pic.GetComponent<Image>().sprite = inventory.Container[i].item.sprite;
+            pic.GetComponent<Image>().preserveAspect = true;
+            pic.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
             obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
             itemsDisplayed.Add(inventory.Container[i], obj);

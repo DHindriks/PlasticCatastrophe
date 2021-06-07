@@ -675,6 +675,9 @@ MonoBehaviour:
   DBGWindow: {fileID: 8819551747362279697}
   player: {fileID: 0}
   overworldCam: {fileID: 0}
+  canvas: {fileID: 0}
+  PopupPrefab: {fileID: 5872315972925393016, guid: 49e6c20b490f4c54ba7d4dcaf3a9c371,
+    type: 3}
   CharList:
   - Name: Turtle
     ID: 0
@@ -682,6 +685,8 @@ MonoBehaviour:
       type: 3}
     Portrait: {fileID: 21300000, guid: 3ff1f4bb19aee30479cc468db3ee5a86, type: 3}
     MinigameSceneName: MinigameSlingShot
+    Energy: 100
+    LastUsed: 0
     Level: 0
     NextLevelReq: 0
     Exp: 0
@@ -708,6 +713,8 @@ MonoBehaviour:
       type: 3}
     Portrait: {fileID: 21300000, guid: 7f7480a30c43cb145bb25bb21821335c, type: 3}
     MinigameSceneName: MinigameBalance
+    Energy: 100
+    LastUsed: 0
     Level: 0
     NextLevelReq: 0
     Exp: 0
@@ -734,6 +741,8 @@ MonoBehaviour:
       type: 3}
     Portrait: {fileID: 21300000, guid: 9861e6db62622694784e8c54a131c442, type: 3}
     MinigameSceneName: MinigameDrop
+    Energy: 100
+    LastUsed: 0
     Level: 0
     NextLevelReq: 0
     Exp: 0

@@ -22,6 +22,12 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public CameraControl overworldCam;
 
+    [SerializeField]
+    GameObject canvas;
+
+    [SerializeField]
+    GameObject PopupPrefab;
+
     public List<character> CharList;
 
     public InventoryObject inventory;
@@ -76,6 +82,7 @@ public class GameManager : MonoBehaviour
     public void StartMinigame(ItemObject item)
     {
         MinigameItem = item;
+        player.TakeDamage(5);
         if (Sidebar.GetComponent<SideBarscript>().Opened)
         {
             Sidebar.GetComponent<SideBarscript>().ToggleSideBar();
@@ -93,6 +100,7 @@ public class GameManager : MonoBehaviour
     {
         if (GiveItem)
         {
+            GenPopup("Found a " + MinigameItem.name, MinigameItem.description, MinigameItem.sprite);
             inventory.AddItem(MinigameItem, 1);
         }
         Sidebar.GetComponent<SideBarscript>().SetSideButton(true);
@@ -100,10 +108,26 @@ public class GameManager : MonoBehaviour
         MinigameItem = null;
     }
 
+    public void GenPopup(string Title, string Description, Sprite sprite)
+    {
+        overworldCam.SetControls(false);
+        GameObject Popup = Instantiate(PopupPrefab, canvas.transform);
+        Popup.GetComponent<Popup>().SetTitle(Title);
+        Popup.GetComponent<Popup>().SetDesc(Description);
+        Popup.GetComponent<Popup>().SetIcon(sprite);
+        Popup.GetComponent<Popup>().Btn.onClick.AddListener(delegate () { overworldCam.SetControls(true); });
+    }
+
     public void RemoveSaves()
     {
         SaveSystem.ResetSaves();
     }
+
+    private void OnApplicationQuit()
+    {
+        SaveSystem.SaveAnimalData(player.CurrentChar);
+    }
+
 }
 
 public enum TrashObjs
@@ -116,6 +140,7 @@ public enum TrashObjs
     PCup,
     BottleCap
 }
+
 [Serializable]
 public struct ItemXPData
 {
@@ -131,6 +156,8 @@ public class character
     public GameObject Prefab;
     public Sprite Portrait;
     public string MinigameSceneName;
+    public float Energy;
+    public int LastUsed;
     [Space(5)]
     public int Level;
     public int NextLevelReq;

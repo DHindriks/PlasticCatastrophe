@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3051992487557871659, guid: f6e942d34be00ea4cb1f5d06b3b00c37,
         type: 3}
       propertyPath: m_Name
-      value: Image Variant 1
+      value: Bottle caps
       objectReference: {fileID: 0}
     - target: {fileID: 3485365538054268959, guid: f6e942d34be00ea4cb1f5d06b3b00c37,
         type: 3}
@@ -30,32 +30,32 @@ PrefabInstance:
     - target: {fileID: 3485365538054268959, guid: f6e942d34be00ea4cb1f5d06b3b00c37,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3485365538054268959, guid: f6e942d34be00ea4cb1f5d06b3b00c37,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3485365538054268959, guid: f6e942d34be00ea4cb1f5d06b3b00c37,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3485365538054268959, guid: f6e942d34be00ea4cb1f5d06b3b00c37,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3485365538054268959, guid: f6e942d34be00ea4cb1f5d06b3b00c37,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 73.38524
+      value: 287.0568
       objectReference: {fileID: 0}
     - target: {fileID: 3485365538054268959, guid: f6e942d34be00ea4cb1f5d06b3b00c37,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 73.38524
+      value: 293
       objectReference: {fileID: 0}
     - target: {fileID: 3485365538054268959, guid: f6e942d34be00ea4cb1f5d06b3b00c37,
         type: 3}
@@ -120,17 +120,22 @@ PrefabInstance:
     - target: {fileID: 8988959237040086414, guid: f6e942d34be00ea4cb1f5d06b3b00c37,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8988959237040086414, guid: f6e942d34be00ea4cb1f5d06b3b00c37,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.59284186
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8988959237040086414, guid: f6e942d34be00ea4cb1f5d06b3b00c37,
         type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988959237040086414, guid: f6e942d34be00ea4cb1f5d06b3b00c37,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6e942d34be00ea4cb1f5d06b3b00c37, type: 3}

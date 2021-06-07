@@ -15,5 +15,6 @@ MonoBehaviour:
   prefab: {fileID: 4572781121660434597, guid: f4a4b25779ddc3047b55494a555d6d7a, type: 3}
   Modelprefab: {fileID: 919132149155446097, guid: 75ed7fda7eddb3642b0284d96747d645,
     type: 3}
+  sprite: {fileID: 21300000, guid: 31f130f401d159442953868596b02316, type: 3}
   type: 2
   description: This is a plastic bottle

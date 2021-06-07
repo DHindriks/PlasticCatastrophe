@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerObj
   - TrashObj
+  - Seagull
   layers:
   - Default
   - TransparentFX

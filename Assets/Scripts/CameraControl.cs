@@ -71,13 +71,16 @@ public class CameraControl : MonoBehaviour
                 Debug.DrawRay(ray.origin, ray.direction, Color.green);
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.transform.tag == "TrashObj")
+                    if (hit.transform.tag == "TrashObj" && GameManager.Instance.player.CurrentChar.Energy >= 5)
                     {
                         Zoom(40, 1);
                         ControlsEnabled = false;
                         FollowTarget = hit.transform.gameObject;
                         Invoke("StartMinigame", 1);
                         Destroy(hit.transform.gameObject, 2);
+                    }else if (GameManager.Instance.player.CurrentChar.Energy < 5)
+                    {
+                        GameManager.Instance.GenPopup(GameManager.Instance.player.CurrentChar.Name + " is too tired!", "Buy energy recharge for 100$", GameManager.Instance.player.CurrentChar.Portrait);
                     }
                 }
                 dragOrigin = Input.mousePosition;
@@ -98,11 +101,17 @@ public class CameraControl : MonoBehaviour
     void StartMinigame()
     {
         GameManager.Instance.StartMinigame(FollowTarget.GetComponent<TrashObjectScript>().Containsitem);
+        cam.enabled = false;
+    }
+
+    public void SetControls (bool enabled)
+    {
+        ControlsEnabled = enabled;
     }
 
     public void ResetCam()
     {
-        ControlsEnabled = true;
+        cam.enabled = true;
         FollowTarget = GameManager.Instance.player.gameObject;
     }
 

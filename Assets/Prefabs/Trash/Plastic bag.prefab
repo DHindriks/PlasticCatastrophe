@@ -15,12 +15,12 @@ PrefabInstance:
     - target: {fileID: 2601229997224409362, guid: 9fabc97f95461a043944ed26c1f8b9c1,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.09803921
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2601229997224409362, guid: 9fabc97f95461a043944ed26c1f8b9c1,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.101315625
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7564041142741224579, guid: 9fabc97f95461a043944ed26c1f8b9c1,
         type: 3}
@@ -40,32 +40,32 @@ PrefabInstance:
     - target: {fileID: 7564041142741224579, guid: 9fabc97f95461a043944ed26c1f8b9c1,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7564041142741224579, guid: 9fabc97f95461a043944ed26c1f8b9c1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7564041142741224579, guid: 9fabc97f95461a043944ed26c1f8b9c1,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7564041142741224579, guid: 9fabc97f95461a043944ed26c1f8b9c1,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7564041142741224579, guid: 9fabc97f95461a043944ed26c1f8b9c1,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 73.38524
+      value: 287.0568
       objectReference: {fileID: 0}
     - target: {fileID: 7564041142741224579, guid: 9fabc97f95461a043944ed26c1f8b9c1,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 73.38524
+      value: 293
       objectReference: {fileID: 0}
     - target: {fileID: 7564041142741224579, guid: 9fabc97f95461a043944ed26c1f8b9c1,
         type: 3}
@@ -130,7 +130,7 @@ PrefabInstance:
     - target: {fileID: 8285643465716866231, guid: 9fabc97f95461a043944ed26c1f8b9c1,
         type: 3}
       propertyPath: m_Name
-      value: Image Variant 4
+      value: Plastic bag
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fabc97f95461a043944ed26c1f8b9c1, type: 3}

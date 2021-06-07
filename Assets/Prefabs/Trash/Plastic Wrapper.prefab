@@ -32,9 +32,9 @@ RectTransform:
   m_Father: {fileID: 8358263590834862313}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.8245164, y: 0.18958704}
+  m_AnchorMax: {x: 0.8245164, y: 0.18958704}
+  m_AnchoredPosition: {x: 0, y: 0.000015258789}
   m_SizeDelta: {x: 73.387115, y: 73.38464}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6041976867269659242
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 1256714950093955493}
   - component: {fileID: 4548415458367999352}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Plastic Wrapper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,10 +166,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -165, y: 306}
-  m_SizeDelta: {x: 73.38524, y: 73.38524}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 181, y: -523}
+  m_SizeDelta: {x: 287.0568, y: 293}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1256714950093955493
 CanvasRenderer:
@@ -192,13 +192,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -5656469452513239925, guid: 6ad18d9d87612d94d9433459f6348ca9,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

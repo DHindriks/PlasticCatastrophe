@@ -9,6 +9,9 @@ public class SideBarscript : MonoBehaviour
     [SerializeField]
     GameObject SideButton;
 
+    [SerializeField]
+    GameObject Icon;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -23,5 +26,12 @@ public class SideBarscript : MonoBehaviour
     {
         Opened = !Opened;
         animator.SetBool("SlideOut", Opened);
+        if (Opened)
+        {
+            Icon.transform.localScale = new Vector3(1, 1, 1);
+        }else
+        {
+            Icon.transform.localScale = new Vector3(1, -1, 1);
+        }
     }
 }

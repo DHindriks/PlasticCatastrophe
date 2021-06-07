@@ -15,5 +15,6 @@ MonoBehaviour:
   prefab: {fileID: 4572781121660434597, guid: f4a4b25779ddc3047b55494a555d6d7a, type: 3}
   Modelprefab: {fileID: 919132149155446097, guid: 5d9f9fccda11ab84d9b92312f9f0f7ef,
     type: 3}
+  sprite: {fileID: 21300000, guid: 965dde5165167d849aa09227f109a8c2, type: 3}
   type: 6
   description: These are some bottle caps

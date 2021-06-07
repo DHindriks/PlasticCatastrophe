@@ -12,7 +12,6 @@ public class PlayerScript : MonoBehaviour
 
     //Health bar & XP bar
     public int maxHealth = 100;
-    public int currentHealth;
     public int maxXP = 100;
     public int currentXP;
     public Image Portrait;
@@ -34,12 +33,6 @@ public class PlayerScript : MonoBehaviour
     {
         GameManager.Instance.player = this;
         SetChar(0);
-
-        //Setting the health at the beginning 
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-        //Setting the xp at the beginning
-        currentXP = CurrentChar.Exp;
     }
 
 
@@ -52,6 +45,9 @@ public class PlayerScript : MonoBehaviour
         if (CurrentChar.Exp >= CurrentChar.NextLevelReq)
         {
             CurrentChar.Level += 1;
+            CurrentChar.Level += 5;
+            maxHealth = 100 + (CurrentChar.Level * 5);
+            UpdateMaxhealth();
             Debug.Log(CurrentChar.Name + " leveled up! Level " + CurrentChar.Level);
             //calculate xp needed for next level
             int prevReq = CurrentChar.NextLevelReq;
@@ -72,6 +68,16 @@ public class PlayerScript : MonoBehaviour
     //sets the selected character based on character's ID value;
     public void SetChar(int CharID){
 
+        System.DateTime epochStart = new System.DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
+
+        if (CurrentChar.Name != "")
+        {
+
+            CurrentChar.LastUsed = (int)(System.DateTime.UtcNow - epochStart).TotalMinutes;
+
+            SaveSystem.SaveAnimalData(CurrentChar);
+        }
+
         CurrentChar = GameManager.Instance.CharList[CharID];
 
         //looks for a save for the animal, if not found, creates a new, default one.
@@ -90,6 +96,24 @@ public class PlayerScript : MonoBehaviour
             CurrentChar.Level = data.Level;
             CurrentChar.Exp = data.Exp;
             CurrentChar.NextLevelReq = data.NextLevelReq;
+            CurrentChar.Energy = data.Energy;
+            CurrentChar.LastUsed = data.TimeStamp;
+
+            maxHealth = 100 + (CurrentChar.Level * 5);
+
+            //adds more energy that recharged over time
+            if (data.TimeStamp != 0)
+            {
+                CurrentChar.Energy += (((float)(System.DateTime.UtcNow - epochStart).TotalMinutes - data.TimeStamp) / 60) * 8;
+                Debug.Log((((float)(System.DateTime.UtcNow - epochStart).TotalMinutes - data.TimeStamp) / 60) * 25);
+                if (CurrentChar.Energy > maxHealth)
+                {
+                    CurrentChar.Energy = maxHealth;
+                }
+            }
+            Updatehealth();
+            UpdateMaxhealth();
+            currentXP = CurrentChar.Exp;
         }
         xp.SetMaxXP(CurrentChar.NextLevelReq);
         xp.SetXP(CurrentChar.Exp);
@@ -137,12 +161,24 @@ public class PlayerScript : MonoBehaviour
 
     }
     //TakeDamage
-    void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
-
-        healthBar.SetHealth(currentHealth);
+        CurrentChar.Energy -= damage;
+        healthBar.SetHealth(CurrentChar.Energy);
     }
+
+    //TakeDamage
+    public void Updatehealth()
+    {
+        healthBar.SetHealth(CurrentChar.Energy);
+    }
+
+    //TakeDamage
+    public void UpdateMaxhealth()
+    {
+        healthBar.SetMaxHealth(maxHealth);
+    }
+
     void TakeXP(int damage)
     {
         currentXP -= damage;

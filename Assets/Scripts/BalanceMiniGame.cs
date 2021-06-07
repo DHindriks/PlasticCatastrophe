@@ -30,16 +30,16 @@ public class BalanceMiniGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.AddForce(Vector3.right, ForceMode.Acceleration);
+        rb.AddForce((Vector3.right * 100) * Time.deltaTime, ForceMode.Acceleration);
         if (Input.GetMouseButton(0) && !GameOver)
         {
             if (Input.mousePosition.x < Screen.width / 2)
             {
-                rb.AddTorque(Vector3.forward * 2, ForceMode.Acceleration);
+                rb.AddTorque((Vector3.forward * 200) * Time.deltaTime, ForceMode.Acceleration);
             }
             if (Input.mousePosition.x > Screen.width / 2)
             {
-                rb.AddTorque(Vector3.back * 2, ForceMode.Acceleration);
+                rb.AddTorque((Vector3.back * 200) * Time.deltaTime, ForceMode.Acceleration);
             }
         }
 

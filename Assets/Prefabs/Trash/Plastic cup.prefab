@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 4548415458367999352, guid: c5f3efaf2df26a645a472ce1005bea45,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.019954205
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4548415458367999352, guid: c5f3efaf2df26a645a472ce1005bea45,
         type: 3}
@@ -20,12 +20,12 @@ PrefabInstance:
     - target: {fileID: 4548415458367999352, guid: c5f3efaf2df26a645a472ce1005bea45,
         type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7636662346367772893, guid: c5f3efaf2df26a645a472ce1005bea45,
         type: 3}
       propertyPath: m_Name
-      value: Image Variant
+      value: Plastic cup
       objectReference: {fileID: 0}
     - target: {fileID: 8358263590834862313, guid: c5f3efaf2df26a645a472ce1005bea45,
         type: 3}
@@ -45,32 +45,32 @@ PrefabInstance:
     - target: {fileID: 8358263590834862313, guid: c5f3efaf2df26a645a472ce1005bea45,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8358263590834862313, guid: c5f3efaf2df26a645a472ce1005bea45,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8358263590834862313, guid: c5f3efaf2df26a645a472ce1005bea45,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8358263590834862313, guid: c5f3efaf2df26a645a472ce1005bea45,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8358263590834862313, guid: c5f3efaf2df26a645a472ce1005bea45,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 73.38524
+      value: 287.0568
       objectReference: {fileID: 0}
     - target: {fileID: 8358263590834862313, guid: c5f3efaf2df26a645a472ce1005bea45,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 73.38524
+      value: 293
       objectReference: {fileID: 0}
     - target: {fileID: 8358263590834862313, guid: c5f3efaf2df26a645a472ce1005bea45,
         type: 3}
