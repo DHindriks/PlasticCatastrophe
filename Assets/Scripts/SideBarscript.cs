@@ -34,4 +34,9 @@ public class SideBarscript : MonoBehaviour
             Icon.transform.localScale = new Vector3(1, -1, 1);
         }
     }
+
+    public void StopApp()
+    {
+        Application.Quit();
+    }
 }

@@ -62,4 +62,49 @@ public static class SaveSystem {
         return;
     }
 
+    public static void SavePollutionData(PollutionSystem savedata)
+    {
+#if PLATFORM_ANDROID
+        if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageWrite))
+        {
+            Permission.RequestUserPermission(Permission.ExternalStorageWrite);
+        }
+#endif
+
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/PollutionData.sav";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        PollutionSaveData data = new PollutionSaveData(savedata);
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
+    public static PollutionSaveData LoadPollutionData()
+    {
+
+#if PLATFORM_ANDROID
+        if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageRead))
+        {
+            Permission.RequestUserPermission(Permission.ExternalStorageRead);
+        }
+#endif
+
+        string path = Application.persistentDataPath + "/PollutionData.sav";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            //formatter.Deserialize(stream);
+            object DeserializedStream = formatter.Deserialize(stream);
+            stream.Close();
+            PollutionSaveData data = (PollutionSaveData)DeserializedStream;
+            return data;
+        }
+        else
+        {
+            Debug.LogWarning("<color=orange>Save not found at " + path + "</color>");
+            return null;
+        }
+    }
 }

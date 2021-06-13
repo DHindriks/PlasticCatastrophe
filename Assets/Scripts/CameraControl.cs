@@ -80,7 +80,7 @@ public class CameraControl : MonoBehaviour
                         Destroy(hit.transform.gameObject, 2);
                     }else if (GameManager.Instance.player.CurrentChar.Energy < 5)
                     {
-                        GameManager.Instance.GenPopup(GameManager.Instance.player.CurrentChar.Name + " is too tired!", "Buy energy recharge for 100$", GameManager.Instance.player.CurrentChar.Portrait);
+                        GameManager.Instance.GenPopup(GameManager.Instance.player.CurrentChar.Name + " is too tired!", GameManager.Instance.player.CurrentChar.Name + " needs time to rest to regain energy.", GameManager.Instance.player.CurrentChar.Portrait);
                     }
                 }
                 dragOrigin = Input.mousePosition;

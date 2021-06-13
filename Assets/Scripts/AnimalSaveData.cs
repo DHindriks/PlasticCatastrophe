@@ -10,6 +10,7 @@ public class AnimalSaveData {
     public int NextLevelReq;
     public float Energy;
     public int TimeStamp;
+    public int Perk;
 
     public AnimalSaveData (character CharStats)
     {
@@ -19,7 +20,19 @@ public class AnimalSaveData {
         NextLevelReq = CharStats.NextLevelReq;
         Energy = CharStats.Energy;
         TimeStamp = CharStats.LastUsed;
+        Perk = CharStats.CurrentPerk.ID;
     }
 }
 
+[System.Serializable]
+public class PollutionSaveData
+{
+    public float Value;
+    public int TimeStamp;
+    public PollutionSaveData(PollutionSystem pollution)
+    {
+        Value = pollution.PollutionValue;
+        TimeStamp = pollution.TimeStamp;
+    }
+}
 

@@ -32,6 +32,7 @@ public class DisplayInventory : MonoBehaviour
             pic.GetComponent<Image>().sprite = inventory.Container[i].item.sprite;
             pic.GetComponent<Image>().preserveAspect = true;
             pic.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            pic.GetComponentInChildren<TextMeshProUGUI>().text = "";
 
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
             obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");

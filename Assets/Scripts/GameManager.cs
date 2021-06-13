@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject PopupPrefab;
 
+    [HideInInspector]
+    public PollutionSystem PolSystem;
+
     public List<character> CharList;
 
     public InventoryObject inventory;
@@ -82,7 +85,14 @@ public class GameManager : MonoBehaviour
     public void StartMinigame(ItemObject item)
     {
         MinigameItem = item;
-        player.TakeDamage(5);
+        if (player.CurrentChar.CurrentPerk != null && player.CurrentChar.CurrentPerk.modifier == PerkModifiers.EnergyEfficiencyModifier)
+        {
+            player.TakeDamage((5 / 100) * 100 - (player.CurrentChar.CurrentPerk.value));
+
+        }else
+        {
+            player.TakeDamage(5);
+        }
         if (Sidebar.GetComponent<SideBarscript>().Opened)
         {
             Sidebar.GetComponent<SideBarscript>().ToggleSideBar();
@@ -101,7 +111,14 @@ public class GameManager : MonoBehaviour
         if (GiveItem)
         {
             GenPopup("Found a " + MinigameItem.name, MinigameItem.description, MinigameItem.sprite);
-            inventory.AddItem(MinigameItem, 1);
+            if (player.CurrentChar.CurrentPerk != null && player.CurrentChar.CurrentPerk.modifier == PerkModifiers.TrashPickupModifier)
+            {
+                inventory.AddItem(MinigameItem, Mathf.RoundToInt(player.CurrentChar.CurrentPerk.value));
+            }else
+            {
+                inventory.AddItem(MinigameItem, 1);
+            }
+            PolSystem.AddPollution(-10);
         }
         Sidebar.GetComponent<SideBarscript>().SetSideButton(true);
 
@@ -166,4 +183,26 @@ public class character
     public int BaseLevelReq;
     public int GrowthRate;
     public List<ItemXPData> XpList;
+    public Perk CurrentPerk;
+    public List<Perk> PerkList;
+}
+
+public enum PerkModifiers
+{
+    XPModifier,
+    EnergyRecoveryModifier,
+    EnergyEfficiencyModifier,
+    TrashPickupModifier,
+    EnergyModifier
+}
+
+[Serializable]
+public class Perk
+{
+    public int ID;
+    public string Name;
+    public string Desc;
+    public PerkModifiers modifier;
+    public float value;
+    public Sprite Icon;
 }

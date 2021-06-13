@@ -38,6 +38,12 @@ public class PlayerScript : MonoBehaviour
 
     public void AddExp(int amount)
     {
+        if (CurrentChar.CurrentPerk != null && CurrentChar.CurrentPerk.modifier == PerkModifiers.XPModifier)
+        {
+            float Modified = amount * CurrentChar.CurrentPerk.value;
+            amount = Mathf.CeilToInt(Modified);
+        }
+
         CurrentChar.Exp += amount;
         xp.SetXP(CurrentChar.Exp);
 
@@ -45,7 +51,6 @@ public class PlayerScript : MonoBehaviour
         if (CurrentChar.Exp >= CurrentChar.NextLevelReq)
         {
             CurrentChar.Level += 1;
-            CurrentChar.Level += 5;
             maxHealth = 100 + (CurrentChar.Level * 5);
             UpdateMaxhealth();
             Debug.Log(CurrentChar.Name + " leveled up! Level " + CurrentChar.Level);
@@ -63,6 +68,22 @@ public class PlayerScript : MonoBehaviour
         SaveSystem.SaveAnimalData(CurrentChar);
 
     }
+    // assigns a perk to the player(Invalid IDs have no effect)
+    public void SetPerk(int ID, bool Manual = true)
+    {
+        foreach (Perk perk in CurrentChar.PerkList)
+        {
+            if (perk.ID == ID)
+            {
+                CurrentChar.CurrentPerk = perk;
+                if (Manual)
+                {
+                    SetChar(CurrentChar.ID);
+                }
+                break;
+            }
+        }
+    }
 
 
     //sets the selected character based on character's ID value;
@@ -72,9 +93,7 @@ public class PlayerScript : MonoBehaviour
 
         if (CurrentChar.Name != "")
         {
-
-            CurrentChar.LastUsed = (int)(System.DateTime.UtcNow - epochStart).TotalMinutes;
-
+            CurrentChar.LastUsed = (int)(System.DateTime.UtcNow - epochStart).TotalSeconds;
             SaveSystem.SaveAnimalData(CurrentChar);
         }
 
@@ -92,6 +111,7 @@ public class PlayerScript : MonoBehaviour
             AnimalSaveData data = SaveSystem.LoadAnimalData(CurrentChar);
 
             //sets loaded values
+            SetPerk(data.Perk, false);
             CurrentChar.Name = data.Name;
             CurrentChar.Level = data.Level;
             CurrentChar.Exp = data.Exp;
@@ -99,20 +119,35 @@ public class PlayerScript : MonoBehaviour
             CurrentChar.Energy = data.Energy;
             CurrentChar.LastUsed = data.TimeStamp;
 
-            maxHealth = 100 + (CurrentChar.Level * 5);
+            if (CurrentChar.CurrentPerk != null && CurrentChar.CurrentPerk.modifier == PerkModifiers.EnergyModifier)
+            {
+                maxHealth = Mathf.CeilToInt((100 + (CurrentChar.Level * 5)) * CurrentChar.CurrentPerk.value);
+            }
+            else
+            {
+                maxHealth = 100 + (CurrentChar.Level * 5);
+            }
 
             //adds more energy that recharged over time
             if (data.TimeStamp != 0)
             {
-                CurrentChar.Energy += (((float)(System.DateTime.UtcNow - epochStart).TotalMinutes - data.TimeStamp) / 60) * 8;
-                Debug.Log((((float)(System.DateTime.UtcNow - epochStart).TotalMinutes - data.TimeStamp) / 60) * 25);
+                Debug.Log(((((float)(System.DateTime.UtcNow - epochStart).TotalSeconds - data.TimeStamp) / 60) / 60) * 8);
+                if (CurrentChar.CurrentPerk != null && CurrentChar.CurrentPerk.modifier == PerkModifiers.EnergyRecoveryModifier)
+                {
+                    CurrentChar.Energy += (((((float)(System.DateTime.UtcNow - epochStart).TotalSeconds - data.TimeStamp) / 60) / 60) * 8) * CurrentChar.CurrentPerk.value;
+                }
+                else
+                {
+                    CurrentChar.Energy += ((((float)(System.DateTime.UtcNow - epochStart).TotalSeconds - data.TimeStamp) / 60) /60) * 8;
+                }
+
                 if (CurrentChar.Energy > maxHealth)
                 {
                     CurrentChar.Energy = maxHealth;
                 }
             }
-            Updatehealth();
             UpdateMaxhealth();
+            Updatehealth();
             currentXP = CurrentChar.Exp;
         }
         xp.SetMaxXP(CurrentChar.NextLevelReq);
