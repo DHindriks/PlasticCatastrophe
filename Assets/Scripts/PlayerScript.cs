@@ -43,7 +43,7 @@ public class PlayerScript : MonoBehaviour
             float Modified = amount * CurrentChar.CurrentPerk.value;
             amount = Mathf.CeilToInt(Modified);
         }
-
+        Debug.Log("xppp " + amount);
         CurrentChar.Exp += amount;
         xp.SetXP(CurrentChar.Exp);
 

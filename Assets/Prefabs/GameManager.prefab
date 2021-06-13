@@ -2081,6 +2081,8 @@ MonoBehaviour:
       Name: 
       Desc: 
       modifier: 0
+      Unlocked: 0
+      Cost: {fileID: 0}
       value: 0
       Icon: {fileID: 0}
     PerkList:
@@ -2088,12 +2090,16 @@ MonoBehaviour:
       Name: 
       Desc: 15% more XP points
       modifier: 0
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: 479d57a7554a47b4489b33e1132f4095, type: 2}
       value: 1.5
       Icon: {fileID: 891156293958465841, guid: 17d3103db11d43048bdfecb0f8152e1f, type: 3}
     - ID: 1
       Name: 
       Desc: Double energy recovery speed
       modifier: 1
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: 008ffb2f34ae2454cbc3bc724471e593, type: 2}
       value: 2
       Icon: {fileID: -2584491849555813812, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
@@ -2101,6 +2107,8 @@ MonoBehaviour:
       Name: 
       Desc: Energy depletes 5% slower
       modifier: 2
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: 2c28c6e7f0aa79e4a8ca1a943fd953c8, type: 2}
       value: 5
       Icon: {fileID: 1603319037428304812, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
@@ -2108,6 +2116,8 @@ MonoBehaviour:
       Name: 
       Desc: Double trash pickups
       modifier: 3
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: 2fe730b7e7f220d489d360f908cc7c57, type: 2}
       value: 2
       Icon: {fileID: -240943742776501867, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
@@ -2115,6 +2125,8 @@ MonoBehaviour:
       Name: 
       Desc: 20% more energy
       modifier: 4
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: f17f7692adad6914cbad37ae916c2d64, type: 2}
       value: 1.2
       Icon: {fileID: -9149511376189789442, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
@@ -2151,6 +2163,8 @@ MonoBehaviour:
       Name: 
       Desc: 
       modifier: 0
+      Unlocked: 0
+      Cost: {fileID: 0}
       value: 0
       Icon: {fileID: 0}
     PerkList:
@@ -2158,6 +2172,8 @@ MonoBehaviour:
       Name: 
       Desc: 15% more XP points
       modifier: 0
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: 479d57a7554a47b4489b33e1132f4095, type: 2}
       value: 1.5
       Icon: {fileID: 8525952766337615483, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
@@ -2165,6 +2181,8 @@ MonoBehaviour:
       Name: 
       Desc: Double energy recovery speed
       modifier: 1
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: 008ffb2f34ae2454cbc3bc724471e593, type: 2}
       value: 2
       Icon: {fileID: 7655250827370030157, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
@@ -2172,6 +2190,8 @@ MonoBehaviour:
       Name: 
       Desc: Energy depletes 5% slower
       modifier: 2
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: 2c28c6e7f0aa79e4a8ca1a943fd953c8, type: 2}
       value: 5
       Icon: {fileID: 2280217847387919882, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
@@ -2179,12 +2199,16 @@ MonoBehaviour:
       Name: 
       Desc: Double trash pickups
       modifier: 3
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: 2fe730b7e7f220d489d360f908cc7c57, type: 2}
       value: 2
       Icon: {fileID: -52980355800590024, guid: 17d3103db11d43048bdfecb0f8152e1f, type: 3}
     - ID: 4
       Name: 
       Desc: 20% more energy
       modifier: 4
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: f17f7692adad6914cbad37ae916c2d64, type: 2}
       value: 1.2
       Icon: {fileID: 7042611628902466415, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
@@ -2221,6 +2245,8 @@ MonoBehaviour:
       Name: 
       Desc: 
       modifier: 0
+      Unlocked: 0
+      Cost: {fileID: 0}
       value: 0
       Icon: {fileID: 0}
     PerkList:
@@ -2228,6 +2254,8 @@ MonoBehaviour:
       Name: 
       Desc: 15% more XP points
       modifier: 0
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: 479d57a7554a47b4489b33e1132f4095, type: 2}
       value: 1.5
       Icon: {fileID: 3961437486575074854, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
@@ -2235,6 +2263,8 @@ MonoBehaviour:
       Name: 
       Desc: Double energy recovery speed
       modifier: 1
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: 008ffb2f34ae2454cbc3bc724471e593, type: 2}
       value: 2
       Icon: {fileID: -1120584395491388716, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
@@ -2242,6 +2272,8 @@ MonoBehaviour:
       Name: 
       Desc: Energy depletes 5% slower
       modifier: 2
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: 2c28c6e7f0aa79e4a8ca1a943fd953c8, type: 2}
       value: 5
       Icon: {fileID: -431698569102859389, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
@@ -2249,6 +2281,8 @@ MonoBehaviour:
       Name: 
       Desc: Double trash pickups
       modifier: 3
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: 2fe730b7e7f220d489d360f908cc7c57, type: 2}
       value: 2
       Icon: {fileID: -4293303513701093255, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
@@ -2256,6 +2290,8 @@ MonoBehaviour:
       Name: 
       Desc: 20% more energy
       modifier: 4
+      Unlocked: 0
+      Cost: {fileID: 11400000, guid: f17f7692adad6914cbad37ae916c2d64, type: 2}
       value: 1.2
       Icon: {fileID: -5111930297688866643, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}

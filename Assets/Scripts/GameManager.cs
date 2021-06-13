@@ -189,6 +189,7 @@ public class character
 
 public enum PerkModifiers
 {
+    None,
     XPModifier,
     EnergyRecoveryModifier,
     EnergyEfficiencyModifier,
@@ -204,6 +205,7 @@ public class Perk
     public string Desc;
     public PerkModifiers modifier;
     public bool Unlocked = false;
+    public InventoryObject Cost;
     public float value;
     public Sprite Icon;
 }
