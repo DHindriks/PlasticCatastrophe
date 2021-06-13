@@ -29,7 +29,12 @@ public class PerksWindow : MonoBehaviour
 
     void OnDisable()
     {
-        foreach(Transform Btn in gridObj)
+        ResetPerkList();
+    }
+
+    void ResetPerkList()
+    {
+        foreach (Transform Btn in gridObj)
         {
             Destroy(Btn.gameObject);
         }
@@ -37,6 +42,8 @@ public class PerksWindow : MonoBehaviour
 
     void RegeneratePerkList()
     {
+        ResetPerkList();
+
         foreach(Perk perk in GameManager.Instance.player.CurrentChar.PerkList)
         {
             GameObject Btn = Instantiate(PerkBtnPrefab, gridObj);
@@ -57,30 +64,9 @@ public class PerksWindow : MonoBehaviour
                 {
                     Btn.GetComponent<Button>().onClick.AddListener(delegate { GameManager.Instance.player.SetPerk(Number); });
                 }
-                Btn.GetComponent<Button>().onClick.AddListener(delegate { Refresh(); });
+                Btn.GetComponent<Button>().onClick.AddListener(delegate { RegeneratePerkList(); });
             }
             PerkBtns.Add(Btn);
-        }
-    }
-
-    public void Refresh()
-    {
-        foreach(GameObject Btn in PerkBtns)
-        {
-            Btn.GetComponent<Button>().interactable = true;
-            Btn.GetComponent<Button>().onClick.RemoveAllListeners();
-            Btn.GetComponent<Button>().onClick.AddListener(delegate { Refresh(); });
-            int Number;
-            if (int.TryParse(Btn.name, out Number))
-            {
-                if (Number == GameManager.Instance.player.CurrentChar.CurrentPerk.ID || GameManager.Instance.PolSystem.PollutionValue > 80)
-                {
-                    Btn.GetComponent<Button>().interactable = false;
-                }else if (!GameManager.Instance.player.SearchPerkInCurr(Number).Unlocked)
-                {
-                    Btn.GetComponent<Button>().onClick.AddListener(delegate { ShowCosts(GameManager.Instance.player.SearchPerkInCurr(Number)); });
-                }
-            }
         }
     }
 
@@ -112,9 +98,9 @@ public class PerksWindow : MonoBehaviour
             promptScript.Confirm.onClick.AddListener(delegate { UnlockPerk(perk); });
         }
         promptScript.Confirm.onClick.AddListener(delegate { Destroy(prompt); });
-        promptScript.Confirm.onClick.AddListener(delegate { Refresh(); });
+        promptScript.Confirm.onClick.AddListener(delegate { RegeneratePerkList(); });
         promptScript.Cancel.onClick.AddListener(delegate { Destroy(prompt); });
-        promptScript.Cancel.onClick.AddListener(delegate { Refresh(); });
+        promptScript.Cancel.onClick.AddListener(delegate { RegeneratePerkList(); });
 
     }
 

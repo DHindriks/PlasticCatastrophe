@@ -41,6 +41,9 @@ public class PollutionSystem : MonoBehaviour
             //adds pollution added since player last played;
             System.DateTime epochStart = new System.DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
             AddPollution(((((float)(System.DateTime.UtcNow - epochStart).TotalSeconds - Data.TimeStamp) / 60) / 60) * 1.3f);
+        }else
+        {
+            AddPollution(0);
         }
 
 

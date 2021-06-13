@@ -12,6 +12,8 @@ public class AnimalSaveData {
     public int TimeStamp;
     public int Perk;
 
+    public bool[] PerksUnlocked;
+
     public AnimalSaveData (character CharStats)
     {
         Name = CharStats.Name;
@@ -21,6 +23,11 @@ public class AnimalSaveData {
         Energy = CharStats.Energy;
         TimeStamp = CharStats.LastUsed;
         Perk = CharStats.CurrentPerk.ID;
+        PerksUnlocked = new bool[CharStats.PerkList.Count];
+        for(int i = 0; i < CharStats.PerkList.Count; i++)
+        {
+            PerksUnlocked[i] = CharStats.PerkList[i].Unlocked;
+        }
     }
 }
 

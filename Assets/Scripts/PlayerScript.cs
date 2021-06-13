@@ -130,6 +130,11 @@ public class PlayerScript : MonoBehaviour
             CurrentChar.Energy = data.Energy;
             CurrentChar.LastUsed = data.TimeStamp;
 
+            for (int i = 0; i < data.PerksUnlocked.Length; i++)
+            {
+                CurrentChar.PerkList[i].Unlocked = data.PerksUnlocked[i];
+            }
+
             if (CurrentChar.CurrentPerk != null && CurrentChar.CurrentPerk.modifier == PerkModifiers.EnergyModifier)
             {
                 maxHealth = Mathf.CeilToInt((100 + (CurrentChar.Level * 5)) * CurrentChar.CurrentPerk.value);
