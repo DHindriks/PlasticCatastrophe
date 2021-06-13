@@ -203,6 +203,7 @@ public class Perk
     public string Name;
     public string Desc;
     public PerkModifiers modifier;
+    public bool Unlocked = false;
     public float value;
     public Sprite Icon;
 }

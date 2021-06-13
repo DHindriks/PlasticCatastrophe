@@ -85,6 +85,17 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    public Perk SearchPerkInCurr(int ID)
+    {
+        foreach (Perk perk in CurrentChar.PerkList)
+        {
+            if (perk.ID == ID)
+            {
+                return perk;
+            }
+        }
+        return null;
+    }
 
     //sets the selected character based on character's ID value;
     public void SetChar(int CharID){

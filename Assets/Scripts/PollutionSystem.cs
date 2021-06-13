@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PollutionSystem : MonoBehaviour
 {
@@ -13,6 +15,12 @@ public class PollutionSystem : MonoBehaviour
     public float PollutionValue;
 
     public int TimeStamp;
+
+    [SerializeField]
+    TextMeshProUGUI amountTxt;
+
+    [SerializeField]
+    Image IMG;
 
     [SerializeField]
     Sprite PollutionEmergency;
@@ -48,8 +56,19 @@ public class PollutionSystem : MonoBehaviour
         }else if (PollutionValue > 100)
         {
             PollutionValue = 100;
+        }else if (PollutionValue > 80 && amount > 0)
+        {
             GameManager.Instance.GenPopup("Pollution!", "Too much plastic will make animals weaker.", PollutionEmergency);
+            GameManager.Instance.player.SetPerk(-1);
+            amountTxt.GetComponent<Animator>().SetBool("Emergency", true);
+        }else if (PollutionValue <= 80)
+        {
+            amountTxt.GetComponent<Animator>().SetBool("Emergency", false);
         }
+
+        amountTxt.text = Mathf.RoundToInt(PollutionValue).ToString();
+        IMG.fillAmount = PollutionValue / 100;
+
 
         RenderSettings.fogColor = SkyColor.Evaluate(PollutionValue / 100);
         RenderSettings.fogStartDistance = 100 - PollutionValue;
