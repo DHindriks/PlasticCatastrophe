@@ -12,6 +12,8 @@ public class TrashObjectScript : MonoBehaviour
     [Space(20)]
     public ItemObject Containsitem;
 
+    public bool MarkForDestroy = false;
+
     void Start()
     {
         Containsitem = ItemList[Random.Range(0, ItemList.Count)];
@@ -26,9 +28,9 @@ public class TrashObjectScript : MonoBehaviour
     //Checks if object instance is too far from the player, if so, it will delete itself.
     void CheckDespawn()
     {
-        if (Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) >= Maxdistance)
+        if (Vector3.Distance(transform.position, GameManager.Instance.player.transform.position) >= Maxdistance || MarkForDestroy)
         {
-            Destroy(this.gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 

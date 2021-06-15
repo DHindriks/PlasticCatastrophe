@@ -6,11 +6,15 @@ using System;
 using UnityEngine;
 using UnityEngine.Android;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance = null;
+    public GameObject loadingScreen;
+    [HideInInspector]
+    public bool MinigamePlaying = false;
 
     [SerializeField]
     GameObject DBGWindow;
@@ -84,6 +88,7 @@ public class GameManager : MonoBehaviour
     //decides which minigame the game starts, based on player character
     public void StartMinigame(ItemObject item)
     {
+        MinigamePlaying = true;
         MinigameItem = item;
         if (player.CurrentChar.CurrentPerk != null && player.CurrentChar.CurrentPerk.modifier == PerkModifiers.EnergyEfficiencyModifier)
         {
@@ -121,7 +126,7 @@ public class GameManager : MonoBehaviour
             PolSystem.AddPollution(-10);
         }
         Sidebar.GetComponent<SideBarscript>().SetSideButton(true);
-
+        MinigamePlaying = false;
         MinigameItem = null;
     }
 
@@ -145,6 +150,36 @@ public class GameManager : MonoBehaviour
         SaveSystem.SaveAnimalData(player.CurrentChar);
     }
 
+     /*public void Awake()
+     {
+         Instance = this;
+
+
+         SceneManager.LoadSceneAsync((int)SceneIndexes.LoadScene, LoadSceneMode.Additive);
+
+     }
+    List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
+     public void LoadGame()
+     {
+        loadingScreen.gameObject.SetActive(true);
+         scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.LoadScene));
+         scenesLoading.Add(SceneManager.LoadSceneAsync((int)SceneIndexes.Ingame, LoadSceneMode.Additive));
+
+        StartCoroutine(GetSceneLoadProgress());
+     }
+
+    public IEnumerator GetSceneLoadProgress()
+    {
+        for(int i=0; i<scenesLoading.Count; i++)
+        {
+            while (!scenesLoading[i].isDone)
+            {
+                yield return null;
+            }
+        }
+
+        loadingScreen.gameObject.SetActive(false);
+    }*/
 }
 
 public enum TrashObjs

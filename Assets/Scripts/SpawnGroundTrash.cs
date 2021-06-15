@@ -7,8 +7,13 @@ public class SpawnGroundTrash : MonoBehaviour
     [SerializeField]
     GameObject Prefab;
 
+    [SerializeField]
+    int MaxGround;
+
     ParticleSystem Ps;
     List<ParticleSystem.Particle> Enter;
+
+    List<GameObject> CurrentGroundTrash = new List<GameObject>();
     void Awake()
     {
         Ps = GetComponent<ParticleSystem>();
@@ -35,7 +40,21 @@ public class SpawnGroundTrash : MonoBehaviour
         {
             ParticleSystem.Particle particle = Enter[i];
 
-            Instantiate(Prefab, particle.position, Quaternion.identity);
+            GameObject NewTrash = Instantiate(Prefab, particle.position, Quaternion.identity);
+            CurrentGroundTrash.Add(NewTrash);
+
+            if (CurrentGroundTrash.Count > MaxGround)
+            {
+                for (int j = 0; j < CurrentGroundTrash.Count - MaxGround; j++)
+                {
+                    if (CurrentGroundTrash[j] != null)
+                    {
+                        CurrentGroundTrash[j].GetComponentInChildren<Animator>().SetBool("Despawning", true);
+                        CurrentGroundTrash.RemoveAt(j);
+                    }
+                }
+                        Debug.Log("despawning " + (CurrentGroundTrash.Count - MaxGround) + " Trash");
+            }
         }
     }
 }

@@ -71,7 +71,7 @@ public class CameraControl : MonoBehaviour
                 Debug.DrawRay(ray.origin, ray.direction, Color.green);
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.transform.tag == "TrashObj" && GameManager.Instance.player.CurrentChar.Energy >= 5)
+                    if (hit.transform.tag == "TrashObj" && GameManager.Instance.player.CurrentChar.Energy >= 5 && !GameManager.Instance.MinigamePlaying)
                     {
                         Zoom(40, 1);
                         ControlsEnabled = false;

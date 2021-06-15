@@ -25,12 +25,15 @@ public class SideBarscript : MonoBehaviour
     public void ToggleSideBar()
     {
         Opened = !Opened;
+
         animator.SetBool("SlideOut", Opened);
         if (Opened)
         {
+            GameManager.Instance.overworldCam.SetControls(false);
             Icon.transform.localScale = new Vector3(1, 1, 1);
         }else
         {
+            GameManager.Instance.overworldCam.SetControls(true);
             Icon.transform.localScale = new Vector3(1, -1, 1);
         }
     }

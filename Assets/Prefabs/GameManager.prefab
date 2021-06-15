@@ -2040,6 +2040,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f737e4beceafa4babc6cb1c0b6e6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingScreen: {fileID: 0}
+  MinigamePlaying: 0
   DBGWindow: {fileID: 8819551747362279697}
   player: {fileID: 0}
   overworldCam: {fileID: 0}
@@ -2089,44 +2091,44 @@ MonoBehaviour:
     - ID: 0
       Name: 
       Desc: 15% more XP points
-      modifier: 0
+      modifier: 1
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: 479d57a7554a47b4489b33e1132f4095, type: 2}
+      Cost: {fileID: 11400000, guid: cd14a47ed40a1164683dcc6b250db954, type: 2}
       value: 1.5
       Icon: {fileID: 891156293958465841, guid: 17d3103db11d43048bdfecb0f8152e1f, type: 3}
     - ID: 1
       Name: 
       Desc: Double energy recovery speed
-      modifier: 1
+      modifier: 2
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: 008ffb2f34ae2454cbc3bc724471e593, type: 2}
+      Cost: {fileID: 11400000, guid: 92d5d5df4f93dc147bf93142383d359c, type: 2}
       value: 2
       Icon: {fileID: -2584491849555813812, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
     - ID: 2
       Name: 
       Desc: Energy depletes 5% slower
-      modifier: 2
+      modifier: 3
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: 2c28c6e7f0aa79e4a8ca1a943fd953c8, type: 2}
+      Cost: {fileID: 11400000, guid: 479d57a7554a47b4489b33e1132f4095, type: 2}
       value: 5
       Icon: {fileID: 1603319037428304812, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
     - ID: 3
       Name: 
       Desc: Double trash pickups
-      modifier: 3
+      modifier: 4
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: 2fe730b7e7f220d489d360f908cc7c57, type: 2}
+      Cost: {fileID: 11400000, guid: 17233d3b4af94744e853a4051a28272f, type: 2}
       value: 2
       Icon: {fileID: -240943742776501867, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
     - ID: 4
       Name: 
       Desc: 20% more energy
-      modifier: 4
+      modifier: 5
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: f17f7692adad6914cbad37ae916c2d64, type: 2}
+      Cost: {fileID: 11400000, guid: 52406ab2b6b7040408c8ba894fdb7ed1, type: 2}
       value: 1.2
       Icon: {fileID: -9149511376189789442, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
@@ -2171,44 +2173,44 @@ MonoBehaviour:
     - ID: 0
       Name: 
       Desc: 15% more XP points
-      modifier: 0
+      modifier: 1
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: 479d57a7554a47b4489b33e1132f4095, type: 2}
+      Cost: {fileID: 11400000, guid: 75485dcae452827479abec4c76e8880b, type: 2}
       value: 1.5
       Icon: {fileID: 8525952766337615483, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
     - ID: 1
       Name: 
       Desc: Double energy recovery speed
-      modifier: 1
+      modifier: 2
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: 008ffb2f34ae2454cbc3bc724471e593, type: 2}
+      Cost: {fileID: 11400000, guid: 5b92bc14f7070d24fb8acc9a20d70714, type: 2}
       value: 2
       Icon: {fileID: 7655250827370030157, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
     - ID: 2
       Name: 
       Desc: Energy depletes 5% slower
-      modifier: 2
+      modifier: 3
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: 2c28c6e7f0aa79e4a8ca1a943fd953c8, type: 2}
+      Cost: {fileID: 11400000, guid: ae2cbbc500d8a784b85ed1878532c857, type: 2}
       value: 5
       Icon: {fileID: 2280217847387919882, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
     - ID: 3
       Name: 
       Desc: Double trash pickups
-      modifier: 3
+      modifier: 4
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: 2fe730b7e7f220d489d360f908cc7c57, type: 2}
+      Cost: {fileID: 11400000, guid: b22b964aec5fba04ca9c08f1fc62ce64, type: 2}
       value: 2
       Icon: {fileID: -52980355800590024, guid: 17d3103db11d43048bdfecb0f8152e1f, type: 3}
     - ID: 4
       Name: 
       Desc: 20% more energy
-      modifier: 4
+      modifier: 5
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: f17f7692adad6914cbad37ae916c2d64, type: 2}
+      Cost: {fileID: 11400000, guid: 19d9b94cde21b1c49aa1fd17cc8277c5, type: 2}
       value: 1.2
       Icon: {fileID: 7042611628902466415, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
@@ -2253,45 +2255,45 @@ MonoBehaviour:
     - ID: 0
       Name: 
       Desc: 15% more XP points
-      modifier: 0
+      modifier: 1
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: 479d57a7554a47b4489b33e1132f4095, type: 2}
+      Cost: {fileID: 11400000, guid: 8a67660f322064944b88a279c583c839, type: 2}
       value: 1.5
       Icon: {fileID: 3961437486575074854, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
     - ID: 1
       Name: 
       Desc: Double energy recovery speed
-      modifier: 1
+      modifier: 2
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: 008ffb2f34ae2454cbc3bc724471e593, type: 2}
+      Cost: {fileID: 11400000, guid: d1963967f88ad81448c718d39b8722f0, type: 2}
       value: 2
       Icon: {fileID: -1120584395491388716, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
     - ID: 2
       Name: 
       Desc: Energy depletes 5% slower
-      modifier: 2
+      modifier: 3
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: 2c28c6e7f0aa79e4a8ca1a943fd953c8, type: 2}
+      Cost: {fileID: 11400000, guid: b3dd5cc46a46b024fab0cbd771f87aca, type: 2}
       value: 5
       Icon: {fileID: -431698569102859389, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
     - ID: 3
       Name: 
       Desc: Double trash pickups
-      modifier: 3
+      modifier: 4
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: 2fe730b7e7f220d489d360f908cc7c57, type: 2}
+      Cost: {fileID: 11400000, guid: 8c714f4d373c6f74eacbbd9d7a4b78e3, type: 2}
       value: 2
       Icon: {fileID: -4293303513701093255, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}
     - ID: 4
       Name: 
       Desc: 20% more energy
-      modifier: 4
+      modifier: 5
       Unlocked: 0
-      Cost: {fileID: 11400000, guid: f17f7692adad6914cbad37ae916c2d64, type: 2}
+      Cost: {fileID: 11400000, guid: d1963967f88ad81448c718d39b8722f0, type: 2}
       value: 1.2
       Icon: {fileID: -5111930297688866643, guid: 17d3103db11d43048bdfecb0f8152e1f,
         type: 3}

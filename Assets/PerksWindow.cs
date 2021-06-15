@@ -79,14 +79,14 @@ public class PerksWindow : MonoBehaviour
         foreach(InventorySlot item in perk.Cost.Container)
         {
             GameObject ItemDisplay = Instantiate(PromptItemPrefab, promptScript.Grid);
-            ItemDisplay.GetComponent<PromptItemScript>().Name.text = item.item.name;
+            ItemDisplay.GetComponent<PromptItemScript>().Name.text = + item.amount + " " + item.item.name;
             ItemDisplay.GetComponent<PromptItemScript>().Icon.sprite = item.item.sprite;
             ItemDisplay.GetComponent<PromptItemScript>().Icon.preserveAspect = true;
-            if (GameManager.Instance.inventory.GetItem(item.item) == null)
+            if (GameManager.Instance.inventory.GetItem(item.item, item.amount) == null)
             {
+                ItemDisplay.GetComponent<PromptItemScript>().Icon.color = Color.red;
                 bool collected = false;
                 ItemsCollected = collected;
-                break;
             }
         }
 
@@ -111,7 +111,7 @@ public class PerksWindow : MonoBehaviour
 
         foreach (InventorySlot item in perk.Cost.Container)
         {
-            GameManager.Instance.inventory.RemoveItem(item.item, 1);
+            GameManager.Instance.inventory.RemoveItem(item.item, item.amount);
         }
     }
 

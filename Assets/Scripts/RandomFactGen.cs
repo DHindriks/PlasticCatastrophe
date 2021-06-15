@@ -1,19 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class RandomFactGen : MonoBehaviour
 {
     [SerializeField]
-    List<string> FactList;
+    List<Sprite> FactList;
 
     [SerializeField]
-    TextMeshProUGUI text;
+    Image img;
 
     // Start is called before the first frame update
     void Start()
     {
-        text.text = FactList[Random.Range(0, FactList.Count)];
+        img.sprite = FactList[Random.Range(0, FactList.Count)];
     }
 }
